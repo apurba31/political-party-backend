@@ -1,0 +1,6 @@
+
+testGetPoliticalLeaderByIdPoliticalLeaderNotFoundException=false
+testDeletePoliticalLeaderNotFoundException=false
+testRegisterPoliticalLeaderInvalidDataException=false
+testDeletePoliticalPartyNotFoundException=false
+testGetByIdPoliticalPartyNotFoundException=false
