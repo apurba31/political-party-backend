@@ -8,7 +8,7 @@ import org.hibernate.validator.constraints.Range;
 public class DevelopmentDto {
 	
 	private Long developmentId;
-	
+	@NotNull
 	private Long politicalLeaderId;
     @NotNull
     @Length(min = 3, max = 100)

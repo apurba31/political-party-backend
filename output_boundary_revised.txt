@@ -1,5 +1,5 @@
 
-testDevelopmentPoliticalLeaderIdNotNull=false
+testDevelopmentPoliticalLeaderIdNotNull=true
 testDevelopmentTitleMaxHundred=true
 testDevelopmentBudgetMaxHundred=true
 testPoliticalPartyNameMinThree=true

@@ -18,7 +18,6 @@ import com.iiht.training.ratings.dto.PoliticalLeaderDto;
 import com.iiht.training.ratings.exceptions.InvalidDataException;
 import com.iiht.training.ratings.service.PoliticalLeaderService;
 
-
 @RestController
 @RequestMapping("/leaders")
 public class PoliticalLeaderController {
@@ -27,7 +26,7 @@ public class PoliticalLeaderController {
 	private PoliticalLeaderService politicalLeaderService;
 
 	@PostMapping
-	public ResponseEntity<?> addPoliticalLeader(PoliticalLeaderDto politicalLeaderDto,
+	public ResponseEntity<?> addPoliticalLeader(@Valid @RequestBody PoliticalLeaderDto politicalLeaderDto,
 			BindingResult result) {
 		if (result.hasErrors()) {
 			throw new InvalidDataException("Political Leader Data is not valid");
@@ -38,9 +37,9 @@ public class PoliticalLeaderController {
 	}
 
 	@PutMapping
-	public ResponseEntity<?> updatePoliticalLeader(PoliticalLeaderDto politicalLeaderDto,
+	public ResponseEntity<?> updatePoliticalLeader(@Valid @RequestBody PoliticalLeaderDto politicalLeaderDto,
 			BindingResult result) {
-		if (!result.hasErrors()) {
+		if (result.hasErrors()) {
 			throw new InvalidDataException("Political Leader Data is not valid");
 		}
 		politicalLeaderService.updatePoliticalLeader(politicalLeaderDto);
@@ -49,7 +48,7 @@ public class PoliticalLeaderController {
 	}
 
 	@DeleteMapping("/{politicalLeaderId}")
-	public ResponseEntity<?> deletePoliticalLeader(@RequestParam Long politicalLeaderId) {
+	public ResponseEntity<?> deletePoliticalLeader(@PathVariable Long politicalLeaderId) {
 
 		politicalLeaderService.deletePoliticalLeader(politicalLeaderId);
 		return ResponseEntity.ok(true);
@@ -57,7 +56,7 @@ public class PoliticalLeaderController {
 	}
 
 	@GetMapping("/{politicalLeaderId}")
-	public ResponseEntity<?> getPoliticalLeaderById(@RequestParam Long politicalLeaderId) {
+	public ResponseEntity<?> getPoliticalLeaderById(@PathVariable Long politicalLeaderId) {
 
 		PoliticalLeaderDto politicalLeaderById = politicalLeaderService.getPoliticalLeaderById(politicalLeaderId);
 		return ResponseEntity.ok(politicalLeaderById);
@@ -71,7 +70,8 @@ public class PoliticalLeaderController {
 
 	}
 
-	@PostMapping("by-party-id/{politicalPartyId}")
+    //@PostMapping
+    @GetMapping("/by-party-id/{politicalPartyId}")
 	public ResponseEntity<?> getAllPoliticalLeaderByPartyId(@PathVariable Long politicalPartyId) {
 
 		List<PoliticalLeaderDto> politicalLeadersByPartyId = politicalLeaderService
