@@ -27,6 +27,7 @@ public class PoliticalPartyController {
 	@Autowired
 	private PoliticalPartyService politicalPartyService;
 
+	//Code for post mapping which creates a party
     @PostMapping
 	public ResponseEntity<?> createParty(@Valid @RequestBody PoliticalPartyDto politicalPartyDto, BindingResult result) {
 		if (result.hasErrors()) {
