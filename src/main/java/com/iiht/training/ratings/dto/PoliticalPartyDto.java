@@ -1,7 +1,6 @@
 package com.iiht.training.ratings.dto;
 
 import java.util.Objects;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
