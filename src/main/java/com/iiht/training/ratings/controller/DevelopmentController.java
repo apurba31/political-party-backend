@@ -1,8 +1,7 @@
 package com.iiht.training.ratings.controller;
 
 import java.util.List;
-
-import javax.activity.InvalidActivityException;
+//import javax.activity.InvalidActivityException;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
